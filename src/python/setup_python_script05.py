@@ -23,17 +23,17 @@ def change_cwd_to_this_dir(this_dir):
     """
         PURPOSE - Change the current workiing directory to match this_dir
     """
+    # LOCAL VARIABLES
+    path = os.getcwd()
+    path_to_this_dir = ''
+
     # VALIDATION
     if not isinstance(this_dir, str):
         raise TypeError('this_dir must be a string')
     elif not this_dir:
         raise ValueError('this_dir can not be empty')
-    elif this_dir not in os.getcwd():
-        raise RuntimeError(f'I will not go hunting for {this_dir} in {os.getcwd()}')
-
-    # LOCAL VARIABLES
-    path = os.getcwd()
-    path_to_this_dir = ''
+    elif this_dir not in path:
+        raise RuntimeError('I will not go hunting for {} in {}'.format(this_dir, path))
 
     # DO IT
     while True:
@@ -52,14 +52,15 @@ def change_cwd_to_this_dir(this_dir):
 def main():
     # LOCAL VARIABLES
     project_name = 'Moccasin_Shooting'
+    cwd = os.getcwd()
 
     # VALIDATION
-    if project_name not in os.getcwd():
-        raise RuntimeError(f'The current working directory must be inside {project_name}')
+    if project_name not in cwd:
+        raise RuntimeError('The current working directory must be inside {}'.format(project_name))
     else:
         change_cwd_to_this_dir(project_name)
-        os.chdir(os.path.join(os.getcwd(), 'src', 'python'))
-        print(os.getcwd())  # DEBUGGING
+        os.chdir(os.path.join(cwd, 'src', 'python'))
+        print(cwd)  # DEBUGGING
 
     test_running_relative()
     # package_dir='python_script05'
