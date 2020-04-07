@@ -1,0 +1,1 @@
+python_script02_in.txt file contents
