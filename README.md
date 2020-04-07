@@ -19,9 +19,7 @@ From the Moccasin_Shooting directory:
 | python_script02 | Basic function      | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
 | python_script03 | Module function     | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
 | python_script04 | Package function    | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script05 | Input file          | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script06 | Output file         | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script07 | Egg distribution    | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| python_script05 | Egg distribution    | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
 
 **LEGEND**
 
