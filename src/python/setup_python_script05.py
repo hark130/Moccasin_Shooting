@@ -59,27 +59,19 @@ def main():
     if project_name not in cwd:
         raise RuntimeError('The current working directory must be inside {}'.format(project_name))
     else:
+        print(os.getcwd())  # DEBUGGING
         change_cwd_to_this_dir(project_name)
-        os.chdir(os.path.join(cwd, 'src', 'python'))
+        print(os.getcwd())  # DEBUGGING
+        os.chdir(os.path.join(os.getcwd(), 'src', 'python'))
 
     # SETUP
     setup(name='python_script05',
           version='0.1',
-          # ATTEMPT #1
-          packages = find_packages(),
-          # ATTEMPT #2
-          # packages=find_packages(where=script05_path),
-          # package_dir={'': script05_path,},
-          # ATTEMPT #3
-          # packages=[script05_path],
-          # ATTEMPT #4
-          # packages=[package_name],  # THIS WORKS!
-          # ATTEMPT #5
-          # packages = find_packages(where=package_dir),
-          author = 'Joseph Harkleroad',
-          author_email = 'hark130@gmail.com',
+          packages=find_packages(),
+          author='Joseph Harkleroad',
+          author_email='hark130@gmail.com',
           # Module to call on $ python my.egg
-          py_modules=['__main__'],
+          py_modules=['python_package.__main__'],
           )
 
 
