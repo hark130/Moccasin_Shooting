@@ -13,6 +13,8 @@ def test_running_relative():
     we_are_here = False  # Prove this wrong
 
     # DO IT
+    # print('File working directory    {}'.format(os.path.dirname(os.path.abspath(__file__))))  # DEBUGGING
+    # print('Current working directory {}'.format(os.getcwd()))  # DEBUGGING
     we_are_here = os.path.dirname(os.path.abspath(__file__)) == os.getcwd()
 
     # DONE
@@ -45,7 +47,6 @@ def change_cwd_to_this_dir(this_dir):
         path = os.path.split(path)[0]
 
     # DONE
-    print(path_to_this_dir)  # DEBUGGING
     os.chdir(path_to_this_dir)
 
 
@@ -60,17 +61,8 @@ def main():
     else:
         change_cwd_to_this_dir(project_name)
         os.chdir(os.path.join(cwd, 'src', 'python'))
-        print(cwd)  # DEBUGGING
 
-    test_running_relative()
-    # package_dir='python_script05'
-    # package_name='python_hw_package'
-    # script05_path = os.path.join(os.getcwd(), 'src', 'python', package_name)
-    # print(os.getcwd())  # DEBUGGING
-    # print(os.path.isdir(script05_path))  # DEBUGGING
-    # print(script05_path)  # DEBUGGING
-    # my_packages = find_packages(where=script05_path)
-    # print(my_packages)  # DEBUGGING
+    # SETUP
     setup(name='python_script05',
           version='0.1',
           # ATTEMPT #1
