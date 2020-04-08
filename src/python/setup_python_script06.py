@@ -65,7 +65,7 @@ def main():
         os.chdir(os.path.join(os.getcwd(), 'src', 'python'))
 
     # SETUP
-    setup(name='python_script05',
+    setup(name='python_script06',
           version='0.1',
           packages=find_packages(),
           author='Joseph Harkleroad',
