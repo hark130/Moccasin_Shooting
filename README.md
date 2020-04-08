@@ -21,7 +21,8 @@ From the Moccasin_Shooting directory:
 | python_script02 | Basic function      | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
 | python_script03 | Module function     | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
 | python_script04 | Package function    | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script05 | Egg distribution    | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| python_script05 | Package execution   | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| python_script06 | Egg execution       | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
 
 **LEGEND**
 
@@ -35,3 +36,4 @@ From the Moccasin_Shooting directory:
 
 NOTE:
 	- [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
+	- Egg execution (see: python_script06) is the end requirement.  Everything prior is just a stepping stone.
