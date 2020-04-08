@@ -9,14 +9,14 @@ From the Moccasin_Shooting directory:
 
 **-OR-**
 
-* `python src/python/python_script01.py -c src/python/test_files/python_script01_in.txt`
-* `python src/python/python_script02.py -c src/python/test_files/python_script02_in.txt`
-* `python src/python/python_script03.py -c src/python/test_files/python_script03_in.txt`
-* `python src/python/python_script04.py -c src/python/test_files/python_script04_in.txt`
-* `python src/python/python_package/ -c src/python/test_files/python_script05_in.txt`
+* `python3 src/python/python_script01.py -c src/python/test_files/python_script01_in.txt`
+* `python3 src/python/python_script02.py -c src/python/test_files/python_script02_in.txt`
+* `python3 src/python/python_script03.py -c src/python/test_files/python_script03_in.txt`
+* `python3 src/python/python_script04.py -c src/python/test_files/python_script04_in.txt`
+* `python3 src/python/python_package/ -c src/python/test_files/python_script05_in.txt`
 * Build the egg, then "eggsecute" it
-	* `python src/python/setup_python_script06.py bdist_egg --dist-dir=dist --bdist-dir=build`
-	* `python dist/python_script06-0.1-py3.6.egg -c src/python/test_files/python_script06_in.txt`
+	* `python3 src/python/setup_python_script06.py bdist_egg --dist-dir=dist --bdist-dir=build`
+	* `python3 dist/python_script06-0.1-py3.6.egg -c src/python/test_files/python_script06_in.txt`
 
 ## Functional Tests
 
