@@ -5,5 +5,11 @@
 
 from python_package import main
 
-if __name__ == '__main__':
+print("test")
+
+def eggsecute():
     main('python_script05.py')
+
+
+if __name__ == '__main__':
+    eggsecute()

@@ -71,7 +71,7 @@ def main():
           author='Joseph Harkleroad',
           author_email='hark130@gmail.com',
           # Module to call on $ python my.egg
-          py_modules=['python_package.__main__'],
+          py_modules=['__main__'],
           )
 
 
