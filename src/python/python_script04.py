@@ -1,14 +1,16 @@
 """
-    PURPOSE - The most basic of 'Hello World's
-    DETAILS - A package-defined function
+    PURPOSE - The most basic of package-based functionality
+    DETAILS - Package Functionality:
+        - Takes a parameter
+        - Prints to stdout
+        - Prints to stderr
+        - Reads the filename from the parameter
+        - Reads the filename's contents
+        - Writes to an output file
 """
 
-from python_hw_package.python_hw_package import print_hw_from_pkg as print_hw
-
-
-def main():
-    print_hw()
+from python_package.python_package import main
 
 
 if __name__ == "__main__":
-    main()
+    main(__file__)
