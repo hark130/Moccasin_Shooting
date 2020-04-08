@@ -5,11 +5,13 @@ Test various ways of executing Python from C code.
 
 From the Moccasin_Shooting directory:
 
-* `python src/python/python_script01.py`
-* `python src/python/python_script02.py`
-* `python src/python/python_script03.py`
-* `python src/python/python_script04.py`
-* `python src/python/setup_python_script05.py bdist_egg --dist-dir dist`; `python dist/python_script05-0.1-py3.6.egg`
+* `python src/python/python_script01.py -c src/python/test_files/python_script01_in.txt`
+* `python src/python/python_script02.py -c src/python/test_files/python_script02_in.txt`
+* `python src/python/python_script03.py -c src/python/test_files/python_script03_in.txt`
+* `python src/python/python_script04.py -c src/python/test_files/python_script04_in.txt`
+* Script 5
+	* As a stand-alone package: `python src/python/python_package/ -c src/python/test_files/python_script05_in.txt`
+	* As an egg: `python src/python/setup_python_script05.py bdist_egg --dist-dir=dist --bdist-dir=build`; `python dist/python_script05-0.1-py3.6.egg -c src/python/test_files/python_script05_in.txt`
 
 ## Functional Tests
 
