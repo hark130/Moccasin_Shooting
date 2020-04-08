@@ -7,8 +7,7 @@ from python_package.python_package import main
 
 
 def eggsecute():
-    print(f'Executing eggsecute()')
-    main('python_script05.py')
+    main('python_script06.py')
 
 
 if __name__ == '__main__':
