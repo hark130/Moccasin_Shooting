@@ -11,5 +11,4 @@ def eggsecute():
 
 
 if __name__ == '__main__':
-    print(f'Executing __main__.py\n{__file__}')
     eggsecute()
