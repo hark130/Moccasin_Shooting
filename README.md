@@ -5,6 +5,10 @@ Test various ways of executing Python from C code.
 
 From the Moccasin_Shooting directory:
 
+`./devops/scripts/basic_run.sh`
+
+**-OR-**
+
 * `python src/python/python_script01.py -c src/python/test_files/python_script01_in.txt`
 * `python src/python/python_script02.py -c src/python/test_files/python_script02_in.txt`
 * `python src/python/python_script03.py -c src/python/test_files/python_script03_in.txt`
