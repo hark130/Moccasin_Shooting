@@ -5,7 +5,6 @@
 
 from python_package import main
 
-print("test")
 
 def eggsecute():
     main('python_script05.py')
