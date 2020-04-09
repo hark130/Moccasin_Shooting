@@ -40,5 +40,6 @@ From the Moccasin_Shooting directory:
 | :x:                | Failed to find the error                   |
 
 NOTE:
+
 	- [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
 	- Egg execution (see: python_script06) is the end requirement.  Everything prior is just a stepping stone.
