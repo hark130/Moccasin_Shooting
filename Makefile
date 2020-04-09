@@ -7,6 +7,7 @@ library:
 	@echo TD: DDN... library
 
 system:
+	$(MAKE) clean_files
 	$(MAKE) library
 	$(CC) $(CFLAGS) -o $(DIST)main_system.o -c $(CODE)main_system.c
 	$(CC) $(CFLAGS) -o $(DIST)system.bin $(DIST)main_system.o
