@@ -1,15 +1,21 @@
+BUILD = ./build/
 CC = gcc
-CFLAGS=-Wall
+CFLAGS = -Wall
+C_CODE = ./src/c/
 DIST = ./dist/
-CODE = ./src/c/
+PYTHON_CODE = ./src/python/
 
 library:
-	@echo TD: DDN... library
+	$(MAKE) egg_layer
+
+egg_layer:
+	$(eval CUR_DIR=$(shell sh -c "pwd"))
+	python3 $(PYTHON_CODE)setup_python_script06.py bdist_egg --dist-dir=$(CUR_DIR)/dist --bdist-dir=$(CUR_DIR)/build
 
 system:
 	$(MAKE) clean_files
 	$(MAKE) library
-	$(CC) $(CFLAGS) -o $(DIST)main_system.o -c $(CODE)main_system.c
+	$(CC) $(CFLAGS) -o $(DIST)main_system.o -c $(C_CODE)main_system.c
 	$(CC) $(CFLAGS) -o $(DIST)system.bin $(DIST)main_system.o
 
 clean_files:
@@ -17,7 +23,7 @@ clean_files:
 
 clean:
 	@$(MAKE) clean_files > /dev/null 2>&1
-	@rm -f $(DIST)*.o $(DIST)*.exe $(DIST)*.bin $(DIST)*.lib $(DIST)*.so
+	@rm -f $(DIST)*.o $(DIST)*.exe $(DIST)*.bin $(DIST)*.lib $(DIST)*.so $(DIST)*.egg
 
 all:
 	$(MAKE) clean
