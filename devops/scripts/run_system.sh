@@ -71,7 +71,7 @@ find_in_file()
     then
         return 0  # Found it
     else
-        echo -e "\n"$FAILURE_PREFIX "Unable to find" $PARAM_NEEDLE "in" $PARAM_HAYSTACK"\n" >&2
+        echo -e "\n"$FAILURE_PREFIX "Unable to find '"$PARAM_NEEDLE"' in" $PARAM_HAYSTACK"\n" >&2
         return 1  # Didn't find it
     fi
 
@@ -137,11 +137,14 @@ done
 # EXECUTE
 for PYTHON_FILE in $PYTHON_REL_FILE_1 $PYTHON_REL_FILE_2 $PYTHON_REL_FILE_3 $PYTHON_REL_FILE_4 $PYTHON_REL_FILE_5 $PYTHON_REL_FILE_6
 do
-    # LOOP VARIABLES
+    # SET TEMP VARIABLES
     TEMP_COMMAND=$PYTHON_COMMAND" "$PYTHON_FILE" "$EXAMPLE_ARG" "$INPUT_FILE_PATH$INPUT_FILE_PREFIX$TEST_NUM$INPUT_FILE_SUFFIX
     TEMP_TEST_NAME=$INPUT_FILE_PREFIX$TEST_NUM".py"
     TEMP_STDOUT_NEEDLE="This is "$TEMP_TEST_NAME" stdout"
     TEMP_STDERR_NEEDLE="This is "$TEMP_TEST_NAME" stderr"
+    TEMP_OUT_TXT_FILE=$INPUT_FILE_PREFIX$TEST_NUM"_out.txt"
+    TEMP_OUT_TXT_NEEDLE1=$TEMP_TEST_NAME  # e.g., python_script01.py
+    TEMP_OUT_TXT_NEEDLE2=$INPUT_FILE_PREFIX$TEST_NUM"_in.txt file contents"  # e.g., python_script01_in.txt file contents
     TEMP_NUM_ERRORS=0
 
     # Execute the command
@@ -162,14 +165,36 @@ do
         then
             ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
         fi
+
         # 2. stderr
         find_in_file "$TEMP_STDERR_NEEDLE" $TEMP_LOG_REL_FILE_STDERR
         if [ $? -ne 0 ]
         then
             ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
         fi
+
         # 3. *_out.txt
-        # find_in_file
+        # 3.a. Verify it was created
+        test -f $TEMP_OUT_TXT_FILE
+        if [ $? -ne 0 ]
+        then
+            echo -e "\n"$FAILURE_PREFIX" Unable to locate "$TEMP_OUT_TXT_FILE"\n" >&2
+            ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
+        else
+            # 3.b. Search for needle 1
+            find_in_file "$TEMP_OUT_TXT_NEEDLE1" $TEMP_OUT_TXT_FILE
+            if [ $? -ne 0 ]
+            then
+                ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
+            fi
+            # 3.c. Search for needle 2
+            find_in_file "$TEMP_OUT_TXT_NEEDLE2" $TEMP_OUT_TXT_FILE
+            if [ $? -ne 0 ]
+            then
+                ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
+            fi
+        fi
+
         # 4. Summary
         if [ $TEMP_NUM_ERRORS -eq 0 ]
         then
