@@ -1,7 +1,15 @@
 # Moccasin_Shooting
-Test various ways of executing Python from C code.
+Test various methods of executing Python3 from C code in Linux.
 
-## Execution
+## METHODS
+
+* [system()](http://man7.org/linux/man-pages/man3/system.3.html)
+* [popen()](http://man7.org/linux/man-pages/man3/popen.3.html)
+* [Embedding Python in Your C Programs](https://www.linuxjournal.com/article/8497)
+* [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
+* [Extending and Embedding the Python Interpreter](https://docs.python.org/3/extending/)
+
+## EXECUTION
 
 From the Moccasin_Shooting directory:
 
@@ -18,16 +26,21 @@ From the Moccasin_Shooting directory:
 	* `python3 src/python/setup_python_script06.py bdist_egg --dist-dir=dist --bdist-dir=build`
 	* `python3 dist/python_script06-0.1-py3.6.egg -c src/python/test_files/python_script06_in.txt`
 
-## Functional Tests
+## RUN TESTS
 
-| Test Number     | Description         | system()        | popen()         | Embedded Python3 | Calling Python from C |
-| :-------------: | :------------------ | :-------------: | :-------------: | :-------------: | :-------------: |
-| python_script01 | Basic functionality | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script02 | Basic function      | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script03 | Module function     | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script04 | Package function    | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script05 | Package execution   | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script06 | Egg execution       | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+From the `Moccasin_Shooting` directory:
+`devops/scripts/run_system.sh`
+
+## TEST RESULTS
+
+| Test Number     | Description         | system()           | popen()         | Embedded Python3 | Calling Python from C | Embedding the Python Interpreter | 
+| :-------------: | :------------------ | :----------------: | :-------------: | :-------------: | :-------------: | :-------------: |
+| python_script01 | Basic functionality | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| python_script02 | Basic function      | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| python_script03 | Module function     | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| python_script04 | Package function    | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| python_script05 | Package execution   | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| python_script06 | Egg execution       | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
 
 **LEGEND**
 
