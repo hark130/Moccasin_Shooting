@@ -76,13 +76,19 @@ int main(int argc, char** argv)
     // Call system
     if (EXIT_SUCCESS == status)
     {
-        putchar(0xA);  // DEBUGGING
-        printf("The command string:  %s\n", cmdBuff);  // DEBUGGING
+        // putchar(0xA);  // DEBUGGING
+        // printf("The command string:  %s\n", cmdBuff);  // DEBUGGING
         // DEBUGGING
-        printf("The final character: '%c' (0x%x)\n",
-               (*(cmdBuff + ((strlen(cmdBuff) - 1) * sizeof(char)))),
-               (*(cmdBuff + ((strlen(cmdBuff) - 1) * sizeof(char)))));
-        putchar(0xA);  // DEBUGGING
+        // printf("The final character: '%c' (0x%x)\n",
+        //        (*(cmdBuff + ((strlen(cmdBuff) - 1) * sizeof(char)))),
+        //        (*(cmdBuff + ((strlen(cmdBuff) - 1) * sizeof(char)))));
+        // putchar(0xA);  // DEBUGGING
+        status = system(cmdBuff);
+        if (status)
+        {
+            fprintf(stderr, "%s system appears to have failed with %d\n",
+                    failMsg, status);
+        }
     }
 
     // CLEAN UP
