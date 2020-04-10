@@ -9,6 +9,7 @@ library:
 	$(MAKE) egg_layer
 
 egg_layer:
+	# NOTE: I was unable to get the "egg layer" script (inside a Makefile recipe) to work any other way than this!
 	$(eval CUR_DIR=$(shell sh -c "pwd"))
 	python3 $(PYTHON_CODE)setup_python_script06.py bdist_egg --dist-dir=$(CUR_DIR)/dist --bdist-dir=$(CUR_DIR)/build
 
