@@ -13,8 +13,6 @@ def test_running_relative():
     we_are_here = False  # Prove this wrong
 
     # DO IT
-    # print('File working directory    {}'.format(os.path.dirname(os.path.abspath(__file__))))  # DEBUGGING
-    # print('Current working directory {}'.format(os.getcwd()))  # DEBUGGING
     we_are_here = os.path.dirname(os.path.abspath(__file__)) == os.getcwd()
 
     # DONE
@@ -59,9 +57,7 @@ def main():
     if project_name not in cwd:
         raise RuntimeError('The current working directory must be inside {}'.format(project_name))
     else:
-        print(os.getcwd())  # DEBUGGING
         change_cwd_to_this_dir(project_name)
-        print(os.getcwd())  # DEBUGGING
         os.chdir(os.path.join(os.getcwd(), 'src', 'python'))
 
     # SETUP

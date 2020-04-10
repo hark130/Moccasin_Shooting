@@ -16,7 +16,6 @@ import sys
 
 class ParseArgument(ArgumentParser):
 
-
     def parse_error(self, message):
         os.stderr.write("Error:  %s\n" % message)
         self.print_help()
@@ -27,13 +26,14 @@ def parse_arguments():
     '''
         Input - None
         Output - Command line argument list from ParseArgument object
-        Note - Lifted shamelessly from https://github.com/hark130/XCOM2_Randomizer/blob/master/xrando.py
+        Note - Lifted shamelessly from:
+            https://github.com/hark130/XCOM2_Randomizer/blob/master/xrando.py
     '''
     # Parser object
     parser = ParseArgument()
 
     # Command line arguments
-    parser.add_argument("-c", "--config", required=True, help = "Input configuration file")
+    parser.add_argument("-c", "--config", required=True, help="Input configuration file")
 
     # List of arguments from the command line
     args = parser.parse_args()
