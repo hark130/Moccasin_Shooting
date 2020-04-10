@@ -42,7 +42,6 @@ find_in_file()
     RETVAL=0
 
     # INPUT VALIDATION
-    # echo $PARAM_HAYSTACK  # DEBUGGING
     # PARAM_NEEDLE
     validate_input_not_empty $PARAM_NEEDLE
     if [ $? -ne 0 ]
@@ -95,7 +94,6 @@ verify_not_in_file()
     RETVAL=0
 
     # INPUT VALIDATION
-    # echo $PARAM_HAYSTACK  # DEBUGGING
     # PARAM_NEEDLE
     validate_input_not_empty $PARAM_NEEDLE
     if [ $? -ne 0 ]
@@ -204,17 +202,9 @@ do
     TEMP_NUM_ERRORS=0
 
     # Execute the command
-    # $TEMP_COMMAND
     $TEMP_COMMAND 1> $TEMP_LOG_REL_FILE_STDOUT 2> $TEMP_LOG_REL_FILE_STDERR
     if [ $? -eq 0 ]
     then
-        # echo $SUCCESS_PREFIX "Found" $INPUT
-        # echo $INPUT_FILE_PATH$INPUT_FILE_PREFIX$TEST_NUM$INPUT_FILE_SUFFIX
-        # echo $TEMP_COMMAND
-        # echo $SUCCESS_PREFIX "for" $PYTHON_FILE
-        # cat $TEMP_LOG_REL_FILE_STDOUT
-        # cat $TEMP_LOG_REL_FILE_STDERR
-
         # VALIDATION
         # 1. stdout
         # 1.a. Verify needle is present

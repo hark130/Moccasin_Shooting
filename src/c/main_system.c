@@ -25,7 +25,6 @@ int main(int argc, char** argv)
     {        
         for (i = 1; i < argc; i++)
         {
-            // printf("%s ", (*(argv+i)));  // DEBUGGING
             buffLen += strlen((*(argv+i)));  // Command length
             buffLen += 1;  // Room for space or nul-terminator
         }
@@ -76,13 +75,6 @@ int main(int argc, char** argv)
     // Call system
     if (EXIT_SUCCESS == status)
     {
-        // putchar(0xA);  // DEBUGGING
-        // printf("The command string:  %s\n", cmdBuff);  // DEBUGGING
-        // DEBUGGING
-        // printf("The final character: '%c' (0x%x)\n",
-        //        (*(cmdBuff + ((strlen(cmdBuff) - 1) * sizeof(char)))),
-        //        (*(cmdBuff + ((strlen(cmdBuff) - 1) * sizeof(char)))));
-        // putchar(0xA);  // DEBUGGING
         status = system(cmdBuff);
         if (status)
         {
