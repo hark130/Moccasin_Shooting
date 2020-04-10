@@ -56,3 +56,15 @@ NOTE:
 
 	- [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
 	- Egg execution (see: python_script06) is the end requirement.  Everything prior is just a stepping stone.
+
+## CODE REVIEW
+
+### Python Code
+
+From the Moccasin_Shooting directory:
+
+* `pycodestyle --max-line-length=100 .`
+
+### C Code
+
+* valgrind?  Nothing?
