@@ -80,6 +80,59 @@ find_in_file()
 }
 
 
+# Purpose - Searches for a string-needle in a file-haystack
+# Parameters
+#   First parameter - "Needle" string
+#   Second parameter - "Haystack" filename
+# Notes
+#   - Utilizes grep
+# Return - 1 if found, 0 if not, 2 on error
+verify_not_in_file()
+{
+    # LOCAL VARIABLES
+    PARAM_NEEDLE=$1
+    PARAM_HAYSTACK=$2
+    RETVAL=0
+
+    # INPUT VALIDATION
+    # echo $PARAM_HAYSTACK  # DEBUGGING
+    # PARAM_NEEDLE
+    validate_input_not_empty $PARAM_NEEDLE
+    if [ $? -ne 0 ]
+    then
+        echo -e "\n"$FAILURE_PREFIX "The 'needle' parameter is invalid\n" >&2
+        return 2
+    fi
+    # PARAM_HAYSTACK
+    validate_input_not_empty $PARAM_HAYSTACK
+    if [ $? -ne 0 ]
+    then
+        echo -e "\n"$FAILURE_PREFIX "The 'haystack' parameter is invalid\n" >&2
+        return 2
+    fi
+    # Verify haystack exists
+    test -f $PARAM_HAYSTACK
+    if [ $? -ne 0 ]
+    then
+        echo -e "\n"$FAILURE_PREFIX "The 'haystack' "$PARAM_HAYSTACK" does not exist\n" >&2
+        return 2
+    fi
+
+    # SEARCH
+    grep "$PARAM_NEEDLE" $PARAM_HAYSTACK > /dev/null 2>&1
+    if [ $? -eq 0 ]
+    then
+        echo -e "\n"$FAILURE_PREFIX "Found '"$PARAM_NEEDLE"' in" $PARAM_HAYSTACK"\n" >&2
+        return 1  # Found it
+    else
+        return 0  # Didn't find it
+    fi
+
+    # DONE(?!)
+    return 2  # If you made it here, something went wrong
+}
+
+
 TEST_NUM=1  # Always start with the first test
 PYTHON_COMMAND="python3"
 SOURCE_DIR="src/python/"
@@ -87,6 +140,7 @@ DIST_DIR="dist/"
 LOG_DIR="devops/logs/"
 BINARY_NAME="system.bin"
 BINARY_REL_NAME=$DIST_DIR$BINARY_NAME
+BINARY_FAIL_MSG="ERROR:"
 PYTHON_FILE_1="python_script01.py"
 PYTHON_FILE_2="python_script02.py"
 PYTHON_FILE_3="python_script03.py"
@@ -163,14 +217,28 @@ do
 
         # VALIDATION
         # 1. stdout
+        # 1.a. Verify needle is present
         find_in_file "$TEMP_STDOUT_NEEDLE" $TEMP_LOG_REL_FILE_STDOUT
+        if [ $? -ne 0 ]
+        then
+            ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
+        fi
+        # 1.b. Verify error message is absent
+        verify_not_in_file "$BINARY_FAIL_MSG" $TEMP_LOG_REL_FILE_STDOUT
         if [ $? -ne 0 ]
         then
             ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
         fi
 
         # 2. stderr
+        # 2.a. Verify needle is present
         find_in_file "$TEMP_STDERR_NEEDLE" $TEMP_LOG_REL_FILE_STDERR
+        if [ $? -ne 0 ]
+        then
+            ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
+        fi
+        # 2.b. Verify error message is absent
+        verify_not_in_file "$BINARY_FAIL_MSG" $TEMP_LOG_REL_FILE_STDERR
         if [ $? -ne 0 ]
         then
             ((TEMP_NUM_ERRORS=TEMP_NUM_ERRORS+1))
