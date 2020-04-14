@@ -7,11 +7,15 @@ PYTHON_CODE = ./src/python/
 
 library:
 	$(MAKE) egg_layer
+	$(MAKE) command_cat
 
 egg_layer:
 	# NOTE: I was unable to get the "egg layer" script (inside a Makefile recipe) to work any other way than this!
 	$(eval CUR_DIR=$(shell sh -c "pwd"))
 	python3 $(PYTHON_CODE)setup_python_script06.py bdist_egg --dist-dir=$(CUR_DIR)/dist --bdist-dir=$(CUR_DIR)/build
+
+command_cat:
+	$(CC) $(CFLAGS) -o $(DIST)MOSH_Command_Cat.o -c $(C_CODE)MOSH_Command_Cat.c
 
 system:
 	$(MAKE) clean_files
