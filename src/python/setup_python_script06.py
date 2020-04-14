@@ -58,11 +58,10 @@ def main():
     pkg_name = 'python_script06'  # Pass this to setup
     pkg_version = '0.1'  # Pass this to setup
     egg_filename = pkg_name + '-' + pkg_version + '-py' + str(sys.version_info[0]) \
-                   + '.' + str(sys.version_info[1]) + '.egg'
+        + '.' + str(sys.version_info[1]) + '.egg'
     generic_egg_filename = pkg_name + '.egg'
     egg_abs_filename = ''  # Define this after determining the project dir
     generic_egg_abs_filename = ''  # Define this after determining the project dir
-
 
     # VALIDATION
     if project_name not in cwd:
