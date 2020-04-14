@@ -233,7 +233,7 @@ int copy_in_arg_values(char *dest, char **arg_values, int start_arg, int stop_ar
     }
 
     // COPY IN ARG VALUES
-    if (true == result)
+    if (MCC_SUCCESS == result)
     {
         for (i = start_arg; i <= stop_arg; i++)
         {
