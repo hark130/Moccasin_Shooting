@@ -1,5 +1,7 @@
 from setuptools import setup, find_packages
+from shutil import copyfile
 import os
+import sys
 
 
 def test_running_relative():
@@ -51,24 +53,39 @@ def change_cwd_to_this_dir(this_dir):
 def main():
     # LOCAL VARIABLES
     project_name = 'Moccasin_Shooting'
+    project_abs_dir = ''
     cwd = os.getcwd()
+    pkg_name = 'python_script06'  # Pass this to setup
+    pkg_version = '0.1'  # Pass this to setup
+    egg_filename = pkg_name + '-' + pkg_version + '-py' + str(sys.version_info[0]) \
+                   + '.' + str(sys.version_info[1]) + '.egg'
+    generic_egg_filename = pkg_name + '.egg'
+    egg_abs_filename = ''  # Define this after determining the project dir
+    generic_egg_abs_filename = ''  # Define this after determining the project dir
+
 
     # VALIDATION
     if project_name not in cwd:
         raise RuntimeError('The current working directory must be inside {}'.format(project_name))
     else:
         change_cwd_to_this_dir(project_name)
+        project_abs_dir = os.getcwd()
+        egg_abs_filename = os.path.join(project_abs_dir, 'dist', egg_filename)
+        generic_egg_abs_filename = os.path.join(project_abs_dir, 'dist', generic_egg_filename)
         os.chdir(os.path.join(os.getcwd(), 'src', 'python'))
 
-    # SETUP
-    setup(name='python_script06',
-          version='0.1',
-          packages=find_packages(),
-          author='Joseph Harkleroad',
-          author_email='hark130@gmail.com',
-          # Module to call on $ python my.egg
-          py_modules=['__main__'],
-          )
+        # SETUP
+        setup(name=pkg_name,
+              version=pkg_version,
+              packages=find_packages(),
+              author='Joseph Harkleroad',
+              author_email='hark130@gmail.com',
+              # Module to call on $ python my.egg
+              py_modules=['__main__'],
+              )
+
+        # COPY
+        copyfile(egg_abs_filename, generic_egg_abs_filename)
 
 
 if __name__ == '__main__':
