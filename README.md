@@ -24,7 +24,7 @@ From the Moccasin_Shooting directory:
 * `python3 src/python/python_package/ -c src/python/test_files/python_script05_in.txt`
 * Build the egg, then "eggsecute" it
 	* `python3 src/python/setup_python_script06.py bdist_egg --dist-dir=dist --bdist-dir=build`
-	* `python3 dist/python_script06-0.1-py3.6.egg -c src/python/test_files/python_script06_in.txt`
+	* `python3 dist/python_script06.egg -c src/python/test_files/python_script06_in.txt`
 
 ## RUN TESTS
 
