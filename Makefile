@@ -21,7 +21,7 @@ system:
 	$(MAKE) clean_files
 	$(MAKE) library
 	$(CC) $(CFLAGS) -o $(DIST)main_system.o -c $(C_CODE)main_system.c
-	$(CC) $(CFLAGS) -o $(DIST)system.bin $(DIST)main_system.o
+	$(CC) $(CFLAGS) -o $(DIST)system.bin $(DIST)MOSH_Command_Cat.o $(DIST)main_system.o
 
 popen:
 	$(MAKE) clean_files
