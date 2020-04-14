@@ -1,6 +1,9 @@
 // Standard Includes
-#include <stdbool.h>
-#include <string.h>
+#include <errno.h>      // errno
+#include <stdbool.h>    // bool
+#include <stdio.h>      // fprintf()
+#include <stdlib.h>     // size_t, calloc()
+#include <string.h>     // strerror()
 // Local Includes
 #include "MOSH_Command_Cat.h"
 
@@ -56,7 +59,6 @@ char *concatenate_arguments(int arg_count, char** arg_values,
 {
     // LOCAL VARIABLES
     char *concat_params = NULL;   // Return value
-    bool success = true;          // Controls the flow of the entire function
     size_t buff_size = 0;         // Overall size of the buffer
     int temp_errno = 0;           // Store errno here
 
@@ -207,7 +209,7 @@ size_t deterine_necessary_size(char **arg_values, int start_arg, int stop_arg)
     // DETERMINE NECESSARY SIZE
     for (i = start_arg; i <= stop_arg; i++)
     {
-        necessary_size += (strlen((*(arg_values + i)) * sizeof(char)));  // Arg value length
+        necessary_size += (strlen((*(arg_values + i))) * sizeof(char));  // Arg value length
         necessary_size += sizeof(char);  // Room for space or nul terminator
     }
 
@@ -261,5 +263,5 @@ int copy_in_arg_values(char *dest, char **arg_values, int start_arg, int stop_ar
     }
 
     // DONE
-    return result
+    return result;
 }
