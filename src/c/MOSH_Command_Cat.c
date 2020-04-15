@@ -7,8 +7,6 @@
 // Local Includes
 #include "MOSH_Command_Cat.h"
 
-#define MCC_ERROR(header, funcName, msg) do { fprintf(stderr, "<<<ERROR>>> - %s - %s() - %s!\n", #header, #funcName, #msg); } while (0);
-#define MCC_ERRNO(header, funcName, errorNum) if (errorNum) { fprintf(stderr, "<<<ERROR>>> - %s - %s() returned errno:%s\n", #header, #funcName, strerror(errorNum)); }
 #define MCC_NAME "MOSH_Command_Cat"
 
 
@@ -96,7 +94,7 @@ char *concatenate_arguments(int arg_count, char** arg_values,
             temp_errno = errno;
             *err_num = MCC_FAILURE;
             MCC_ERROR(MCC_NAME, concatenate_arguments, calloc failed);
-            MCC_ERRNO(header, funcName, temp_errno);
+            MCC_ERRNO(MCC_NAME, calloc, temp_errno);
         }
     }
 
@@ -114,7 +112,7 @@ char *concatenate_arguments(int arg_count, char** arg_values,
         {
             temp_errno = errno;
             MCC_ERROR(MCC_NAME, concatenate_arguments, memset failed);
-            MCC_ERRNO(header, funcName, temp_errno);
+            MCC_ERRNO(MCC_NAME, memset, temp_errno);
         }
         // Free
         free(concat_params);

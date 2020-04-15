@@ -5,6 +5,9 @@
 #define MCC_INVALID_INPUT 1
 #define MCC_FAILURE 2
 
+#define MCC_ERROR(header, funcName, msg) do { fprintf(stderr, "<<<ERROR>>> - %s - %s() - %s!\n", #header, #funcName, #msg); } while (0);
+#define MCC_ERRNO(header, funcName, errorNum) if (errorNum) { fprintf(stderr, "<<<ERROR>>> - %s - %s() provided errno: %s\n", #header, #funcName, strerror(errorNum)); }
+#define MCC_ERNUM(header, funcName, errorNum) if (errorNum) { fprintf(stderr, "<<<ERROR>>> - %s - %s() provided error code: %d (0x%x)\n", #header, #funcName, errorNum, errorNum); }
 
 /*
  * PURPOSE - Concatenate arguments into a single heap-allocated buffer
