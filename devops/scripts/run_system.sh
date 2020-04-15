@@ -136,6 +136,7 @@ PYTHON_COMMAND="python3"
 SOURCE_DIR="src/python/"
 DIST_DIR="dist/"
 LOG_DIR="devops/logs/"
+RECIPE_NAME="system"
 BINARY_NAME="system.bin"
 BINARY_REL_NAME=$DIST_DIR$BINARY_NAME
 BINARY_FAIL_MSG="ERROR:"
@@ -165,12 +166,12 @@ cd "$(dirname "$0")"  # Change directory with respect to this script
 cd ../..  # Change directory to the project's top level
 
 # BUILD
-make --quiet system > /dev/null 2>&1
+make --quiet $RECIPE_NAME > /dev/null 2>&1
 if [ $? -ne 0 ]
 then
     echo -e "\n"$FAILURE_PREFIX "Makefile recipe has failed" >&2
     echo "Replicate these results with the following command:" >&2
-    echo -e "make system\n" >&2
+    echo -e "make "$RECIPE_NAME"\n" >&2
     exit 1
 fi
 
