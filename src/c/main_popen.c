@@ -1,8 +1,6 @@
 // Standard Includes
 #include <errno.h>      // errno
 #include <stdlib.h>     // MACROS
-#include <stdio.h>      // fprintf()
-#include <string.h>     // memset()
 // Local Includes
 #include "MOSH_Command_Cat.h"
 
