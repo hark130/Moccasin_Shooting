@@ -1,7 +1,7 @@
 // Standard Includes
+#include <errno.h>      // errno
 #include <stdlib.h>     // MACROS
 #include <stdio.h>      // fprintf()
-#include <string.h>     // memset()
 // Local Includes
 #include "MOSH_Command_Cat.h"
 
@@ -11,7 +11,6 @@ int main(int argc, char **argv)
     // LOCAL VARIABLES
     int status = EXIT_SUCCESS;    // Exit status
     int errNum = 0;               // Store error codes here
-    char failMsg[] = {"ERROR:"};  // Standardized failure message
     char *cmdBuff = NULL;         // Buffer to store the command
 
     // INPUT VALIDATION
@@ -29,8 +28,8 @@ int main(int argc, char **argv)
         if (!cmdBuff || 0x0 == *cmdBuff)
         {
             status = EXIT_FAILURE;
-            fprintf(stderr, "%s concatenate_arguments appears to have failed with %d\n",
-                    failMsg, errNum);
+            MCC_ERROR(main_system, main, concatenate_arguments appears to have failed);
+            MCC_ERNUM(main_system, concatenate_arguments, errNum);
         }
     }
 
@@ -40,8 +39,10 @@ int main(int argc, char **argv)
         status = system(cmdBuff);
         if (status)
         {
-            fprintf(stderr, "%s system appears to have failed with %d\n",
-                    failMsg, status);
+            errNum = errno;
+            MCC_ERROR(main_system, main, pclose appears to have failed);
+            MCC_ERNUM(main_system, system, status);
+            MCC_ERRNO(main_system, system, errNum);
         }
     }
 
