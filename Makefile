@@ -27,7 +27,7 @@ popen:
 	$(MAKE) clean_files
 	$(MAKE) library
 	$(CC) $(CFLAGS) -o $(DIST)main_popen.o -c $(C_CODE)main_popen.c
-	$(CC) $(CFLAGS) -o $(DIST)popen.bin $(DIST)main_popen.o
+	$(CC) $(CFLAGS) -o $(DIST)popen.bin $(DIST)MOSH_Command_Cat.o $(DIST)main_popen.o
 
 clean_files:
 	@rm -f *_out.txt > /dev/null 2>&1
