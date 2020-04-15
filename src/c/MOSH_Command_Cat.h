@@ -1,6 +1,9 @@
 #ifndef __MOSH_COMMAND_CAT__
 #define __MOSH_COMMAND_CAT__
 
+#include <stdio.h>
+#include <string.h>
+
 #define MCC_SUCCESS 0
 #define MCC_INVALID_INPUT 1
 #define MCC_FAILURE 2
