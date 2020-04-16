@@ -1,10 +1,10 @@
 #!/bin/bash
-# PURPOSE - Execute the system.bin binary against all Python examples
-# USAGE: run_system.sh
-# EXAMPLE: run_system.sh
+# PURPOSE - Execute the popen.bin binary against all Python examples
+# USAGE: run_popen.sh
+# EXAMPLE: run_popen.sh
 # NOTES:
 #   Executes in the following order:
-#       make system; <executes python_script0{1-6}>; <Checks output>
+#       make popen; <executes python_script0{1-6}>; <Checks output>
 #   Python examples are hard-coded because python example 5 and 6 don't follow convention
 #   Greps the output text file for references to:
 #       - python_script0?.py
@@ -136,8 +136,8 @@ PYTHON_COMMAND="python3"
 SOURCE_DIR="src/python/"
 DIST_DIR="dist/"
 LOG_DIR="devops/logs/"
-RECIPE_NAME="system"
-BINARY_NAME="system.bin"
+RECIPE_NAME="popen"
+BINARY_NAME="popen.bin"
 BINARY_REL_NAME=$DIST_DIR$BINARY_NAME
 BINARY_FAIL_MSG="ERROR:"
 PYTHON_FILE_1="python_script01.py"

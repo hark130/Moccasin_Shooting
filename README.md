@@ -24,24 +24,24 @@ From the Moccasin_Shooting directory:
 * `python3 src/python/python_package/ -c src/python/test_files/python_script05_in.txt`
 * Build the egg, then "eggsecute" it
 	* `python3 src/python/setup_python_script06.py bdist_egg --dist-dir=dist --bdist-dir=build`
-	* `python3 dist/python_script06-0.1-py3.6.egg -c src/python/test_files/python_script06_in.txt`
+	* `python3 dist/python_script06.egg -c src/python/test_files/python_script06_in.txt`
 
 ## RUN TESTS
 
 From the `Moccasin_Shooting` directory:
 
-`devops/scripts/run_system.sh`
+`devops/scripts/run_tests.sh`
 
 ## TEST RESULTS
 
-| Test Number     | Description         | system()           | popen()         | Embedded Python3 | Calling Python from C | Embedding the Python Interpreter | 
-| :-------------: | :------------------ | :----------------: | :-------------: | :-------------: | :-------------: | :-------------: |
-| python_script01 | Basic functionality | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script02 | Basic function      | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script03 | Module function     | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script04 | Package function    | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script05 | Package execution   | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script06 | Egg execution       | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| Test Number     | Description         | system()           | popen()            | Embedded Python3 | Calling Python from C | Embedding the Python Interpreter |
+| :-------------: | :------------------ | :----------------: | :----------------: | :-------------: | :-------------: | :-------------: |
+| python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script03 | Module function     | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script04 | Package function    | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script05 | Package execution   | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script06 | Egg execution       | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
 
 **LEGEND**
 
@@ -68,4 +68,5 @@ From the Moccasin_Shooting directory:
 
 ### C Code
 
-* valgrind?  Nothing?
+* valgrind --leak-check=full --track-origins=yes --tool=memcheck --child-silent-after-fork=yes --error-exitcode=1 --trace-children=yes dist/system.bin echo test
+* valgrind --leak-check=full --track-origins=yes --tool=memcheck --child-silent-after-fork=yes --error-exitcode=1 --trace-children=yes dist/popen.bin echo test
