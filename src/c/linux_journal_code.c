@@ -6,7 +6,8 @@
  *      modern.
  */
 
-#include <python2.3/Python.h>
+// #include <python2.3/Python.h>  /* I don't have Python2.3 */
+#include <python2.7/Python.h>
 
 
 // Listing 1. Embedding Python in Three Lines
