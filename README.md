@@ -30,7 +30,7 @@ From the Moccasin_Shooting directory:
 
 From the `Moccasin_Shooting` directory:
 
-`devops/scripts/run_system.sh`
+`devops/scripts/run_tests.sh`
 
 ## TEST RESULTS
 
