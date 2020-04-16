@@ -43,7 +43,7 @@ void process_expression(char* filename,
     // functions to be made available
     // to user expressions
     exp_file = fopen(filename, "r");
-    PyRun_SimpleFile(exp_file, exp);
+    PyRun_SimpleFile(exp_file, filename);
 
     // Iterate through the expressions
     // and execute them
