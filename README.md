@@ -34,7 +34,7 @@ From the `Moccasin_Shooting` directory:
 
 ## TEST RESULTS
 
-| Test Number     | Description         | system()           | popen()            | Embedded Python3 | Calling Python from C | Embedding the Python Interpreter |
+| Test Number     | Description         | system()           | popen()            | Python Linking  | Calling Python from C | Embedding the Python Interpreter |
 | :-------------: | :------------------ | :----------------: | :----------------: | :-------------: | :-------------: | :-------------: |
 | python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
 | python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
