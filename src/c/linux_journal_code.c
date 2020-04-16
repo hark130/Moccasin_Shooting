@@ -20,7 +20,7 @@ void exec_pycode(const char* code)
 
 
 // Listing 2. Embedding an Interactive Python
-void exec_interactive_interpreter(int arg, char** argv)
+void exec_interactive_interpreter(int argc, char** argv)
 {
     Py_Initialize();
     Py_Main(argc, argv);
