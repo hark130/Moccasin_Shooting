@@ -89,14 +89,56 @@ void process_function(int num, char* func_name, char* filename)
 }
 
 
+// Adjusted Usage - Just process a file
+void process_file(char *filename)
+{
+    FILE *python_file = NULL;
+
+    // Initialize a global variable for
+    // display of expression results
+    // PyRun_SimpleString("x = 0");
+
+    // Open and execute the file of
+    // functions to be made available
+    // to user expressions
+    python_file = fopen(filename, "r");
+
+    if (python_file)
+    {
+        PyRun_SimpleFile(python_file, filename);
+        fclose(python_file);
+        python_file = NULL;
+    }
+
+    // Iterate through the expressions
+    // and execute them
+    // while(num--) {
+    //     PyRun_SimpleString(*exp++);
+    //     PyRun_SimpleString("print x");
+    // }
+}
+
+
 int main(int argc, char** argv)
 {
     Py_Initialize();
 
-    if(argc != 3) {
-        printf("Usage: %s FILENAME EXPRESSION+\n", argv[0]);
+    /* MY CODE */
+    if (argc != 2)
+    {
+        fprintf(stderr, "USAGE: %s FILENAME.py\n", argv[0]);
         return 1;
     }
-    process_expression(argv[1], argc - 1, argv + 2);
+    else
+    {
+        process_file(argv[1]);
+    }
+
+    /* LEGACY CODE */
+    // if(argc != 3) {
+    //     printf("Usage: %s FILENAME EXPRESSION+\n", argv[0]);
+    //     return 1;
+    // }
+    // process_expression(argv[1], argc - 1, argv + 2);
     return 0;
 }
