@@ -3,11 +3,11 @@ Test various methods of executing Python3 from C code in Linux.
 
 ## METHODS
 
-* [system()](http://man7.org/linux/man-pages/man3/system.3.html)
-* [popen()](http://man7.org/linux/man-pages/man3/popen.3.html)
-* [Embedding Python in Your C Programs](https://www.linuxjournal.com/article/8497)
-* [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
-* [Extending and Embedding the Python Interpreter](https://docs.python.org/3/extending/)
+1. [system()](http://man7.org/linux/man-pages/man3/system.3.html)
+2. [popen()](http://man7.org/linux/man-pages/man3/popen.3.html)
+3. [Embedding Python in Your C Programs](https://www.linuxjournal.com/article/8497)
+4. [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
+5. [Extending and Embedding the Python Interpreter](https://docs.python.org/3/extending/)
 
 ## EXECUTION
 
@@ -34,7 +34,7 @@ From the `Moccasin_Shooting` directory:
 
 ## TEST RESULTS
 
-| Test Number     | Description         | system()           | popen()            | Python Linking  | Calling Python from C | Embedding the Python Interpreter |
+| Test Number     | Description         | 1. system()        | 2. popen()         | 3. Python Linking | 4. Calling Python from C | 5. Embedding the Python Interpreter |
 | :-------------: | :------------------ | :----------------: | :----------------: | :-------------: | :-------------: | :-------------: |
 | python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
 | python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
