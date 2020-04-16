@@ -23,8 +23,12 @@ command_cat:
 # a list of the linking options that should be passed to the compiler. On my system, those are:
 # -lpython2.3 -lm -L/usr/lib/python2.3/config
 linux_journal:
+	# Original Python2.2 modified for Python2.7
 	$(CC) $(CFLAGS) -o $(DIST)linux_journal.o -c $(C_CODE)linux_journal_code.c
 	$(CC) $(CFLAGS) -o $(DIST)linux_journal.bin $(DIST)linux_journal.o -lpython2.7
+	# Original Python2.2 modified for Python3.6
+	$(CC) $(CFLAGS) -o $(DIST)linux_journal3.o -c $(C_CODE)linux_journal_code_python3.c
+	$(CC) $(CFLAGS) -o $(DIST)linux_journal3.bin $(DIST)linux_journal3.o -lpython3.6m
 
 system:
 	$(MAKE) clean_files
