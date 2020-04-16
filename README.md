@@ -34,14 +34,14 @@ From the `Moccasin_Shooting` directory:
 
 ## TEST RESULTS
 
-| Test Number     | Description         | system()           | popen()         | Embedded Python3 | Calling Python from C | Embedding the Python Interpreter | 
-| :-------------: | :------------------ | :----------------: | :-------------: | :-------------: | :-------------: | :-------------: |
-| python_script01 | Basic functionality | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script02 | Basic function      | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script03 | Module function     | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script04 | Package function    | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script05 | Package execution   | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
-| python_script06 | Egg execution       | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: | :grey_question: |
+| Test Number     | Description         | system()           | popen()            | Embedded Python3 | Calling Python from C | Embedding the Python Interpreter |
+| :-------------: | :------------------ | :----------------: | :----------------: | :-------------: | :-------------: | :-------------: |
+| python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script03 | Module function     | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script04 | Package function    | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script05 | Package execution   | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| python_script06 | Egg execution       | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
 
 **LEGEND**
 
