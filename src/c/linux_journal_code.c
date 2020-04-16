@@ -94,7 +94,7 @@ int main(int argc, char** argv)
     Py_Initialize();
 
     if(argc != 3) {
-        printf("Usage: %s FILENAME EXPRESSION+\n");
+        printf("Usage: %s FILENAME EXPRESSION+\n", argv[0]);
         return 1;
     }
     process_expression(argv[1], argc - 1, argv + 2);
