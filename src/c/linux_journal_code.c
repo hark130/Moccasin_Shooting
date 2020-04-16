@@ -57,7 +57,7 @@ void process_expression(char* filename,
 // Listing 5. Using Callable Function References
 // Originally named void process_expression() but I
 //  renamed it here to avoid compiler errors.
-void process_function(int num, char* func_name)
+void process_function(int num, char* func_name, char* filename)
 {
     FILE*        exp_file;
     PyObject*    main_module, * global_dict, * expression;
@@ -67,8 +67,8 @@ void process_function(int num, char* func_name)
     PyRun_SimpleString("x = 0");
 
     // Open and execute the Python file
-    exp_file = fopen(exp, "r");
-    PyRun_SimpleFile(exp_file, exp);
+    exp_file = fopen(filename, "r");
+    PyRun_SimpleFile(exp_file, filename);
 
     // Get a reference to the main module
     // and global dictionary
