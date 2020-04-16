@@ -46,10 +46,6 @@ int main(int argc, char **argv)
             MCC_ERROR(main_popen, main, popen appears to have failed);
             MCC_ERRNO(main_popen, popen, errNum);
         }
-        else
-        {
-
-        }
     }
 
     // Read the stream
