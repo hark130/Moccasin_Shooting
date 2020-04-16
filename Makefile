@@ -24,6 +24,7 @@ command_cat:
 # -lpython2.3 -lm -L/usr/lib/python2.3/config
 linux_journal:
 	$(CC) $(CFLAGS) -o $(DIST)linux_journal.o -c $(C_CODE)linux_journal_code.c
+	$(CC) $(CFLAGS) -o $(DIST)linux_journal.bin $(DIST)linux_journal.o -lpython2.7
 
 system:
 	$(MAKE) clean_files
