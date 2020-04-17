@@ -6,9 +6,9 @@ Test various methods of executing Python3 from C code in Linux.
 1. [system()](http://man7.org/linux/man-pages/man3/system.3.html)
 2. [popen()](http://man7.org/linux/man-pages/man3/popen.3.html)
 3. Utilizing Python's C API
-  * [Embedding Python in Your C Programs](https://www.linuxjournal.com/article/8497)
-  * [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
-  * [Extending and Embedding the Python Interpreter](https://docs.python.org/3/extending/)
+    * [Embedding Python in Your C Programs](https://www.linuxjournal.com/article/8497)
+    * [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
+    * [Extending and Embedding the Python Interpreter](https://docs.python.org/3/extending/)
 
 ## EXECUTION
 
