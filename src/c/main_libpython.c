@@ -154,6 +154,9 @@ int main(int argc, char **argv)
         status = EXIT_FAILURE;
     }
 
+    // SETUP
+    Py_Initialize();
+
     // EXECUTE PARAMETERS
     // Convert arguments
     if (EXIT_SUCCESS == status)
@@ -186,6 +189,7 @@ int main(int argc, char **argv)
     }
 
     // CLEAN UP
+    // wargv
     if (wargv)
     {
         // Free
@@ -193,6 +197,8 @@ int main(int argc, char **argv)
         // NULL
         wargv = NULL;
     }
+    // Python library
+    Py_Finalize();
 
     // DONE
     exit(status);
