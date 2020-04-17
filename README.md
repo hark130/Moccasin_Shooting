@@ -34,14 +34,14 @@ From the `Moccasin_Shooting` directory:
 
 ## TEST RESULTS
 
-| Test Number     | Description         | 1. system()        | 2. popen()         | 3. Python/C API | 4. Calling Python from C | 5. Embedding the Python Interpreter |
-| :-------------: | :------------------ | :----------------: | :----------------: | :---------------: | :-------------: | :-------------: |
-| python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :grey_question:   | :grey_question: | :grey_question: |
-| python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :grey_question:   | :grey_question: | :grey_question: |
-| python_script03 | Module function     | :heavy_check_mark: | :heavy_check_mark: | :grey_question:   | :grey_question: | :grey_question: |
-| python_script04 | Package function    | :heavy_check_mark: | :heavy_check_mark: | :grey_question:   | :grey_question: | :grey_question: |
-| python_script05 | Package execution   | :heavy_check_mark: | :heavy_check_mark: | :grey_question:   | :grey_question: | :grey_question: |
-| python_script06 | Egg execution       | :heavy_check_mark: | :heavy_check_mark: | :grey_question:   | :grey_question: | :grey_question: |
+| Test Number     | Description         | 1. system()        | 2. popen()         | 3. Python/C API    | 4. Calling Python from C | 5. Embedding the Python Interpreter |
+| :-------------: | :------------------ | :----------------: | :----------------: | :----------------: | :-------------: | :-------------: |
+| python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script03 | Module function     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script04 | Package function    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script05 | Package execution   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script06 | Egg execution       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
 
 **LEGEND**
 
@@ -50,8 +50,8 @@ From the `Moccasin_Shooting` directory:
 | :anger:            | False positive, misleading/missing results |
 | :boom:             | Seg fault or core dump                     |
 | :grey_question:    | Test not yet executed                      |
-| :heavy_check_mark: | Succeeded in finding the error             |
-| :x:                | Failed to find the error                   |
+| :heavy_check_mark: | Test passed                                |
+| :x:                | Test failed                                |
 
 NOTE:
 
