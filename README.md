@@ -35,14 +35,14 @@ From the `Moccasin_Shooting` directory:
 
 ## TEST RESULTS
 
-| Test Number     | Description         | 1. system()        | 2. popen()         | 3. Python/C API    |
-| :-------------: | :------------------ | :----------------: | :----------------: | :----------------: |
-| python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| python_script03 | Module function     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| python_script04 | Package function    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| python_script05 | Package execution   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| python_script06 | Egg execution       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Test Number     | Description         | 1. system()        | 2. popen()         | 3. Python's C API    |
+| :-------------: | :------------------ | :----------------: | :----------------: | :------------------: |
+| python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:   |
+| python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:   |
+| python_script03 | Module function     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:   |
+| python_script04 | Package function    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:   |
+| python_script05 | Package execution   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:   |
+| python_script06 | Egg execution       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:   |
 
 **LEGEND**
 
