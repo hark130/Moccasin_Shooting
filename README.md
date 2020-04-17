@@ -55,9 +55,7 @@ From the `Moccasin_Shooting` directory:
 | :x:                | Test failed                                |
 
 NOTE:
-
-	- [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
-	- Egg execution (see: python_script06) is the end requirement.  Everything prior is just a stepping stone.
+- Egg execution (see: python_script06) is the end requirement.  Everything prior is just a stepping stone.
 
 ## CODE REVIEW
 
