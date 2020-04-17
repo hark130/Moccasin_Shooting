@@ -56,7 +56,7 @@ def main():
     project_abs_dir = ''
     cwd = os.getcwd()
     pkg_name = 'python_script06'  # Pass this to setup
-    pkg_version = '0.1'  # Pass this to setup
+    pkg_version = '1.0'  # Pass this to setup
     egg_filename = pkg_name + '-' + pkg_version + '-py' + str(sys.version_info[0]) \
         + '.' + str(sys.version_info[1]) + '.egg'
     generic_egg_filename = pkg_name + '.egg'
