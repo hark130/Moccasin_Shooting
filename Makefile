@@ -3,6 +3,7 @@ CC = gcc
 CFLAGS = -Wall
 C_CODE = ./src/c/
 DIST = ./dist/
+LOGS = ./devops/logs/
 PYTHON_CODE = ./src/python/
 
 library:
@@ -51,8 +52,12 @@ libpython:
 clean_files:
 	@rm -f *_out.txt > /dev/null 2>&1
 
+clean_logs:
+	@rm -f $(LOGS)* > /dev/null 2>&1
+
 clean:
 	@$(MAKE) clean_files > /dev/null 2>&1
+	@$(MAKE) clean_logs > /dev/null 2>&1
 	@rm -f $(DIST)*.o $(DIST)*.exe $(DIST)*.bin $(DIST)*.lib $(DIST)*.so $(DIST)*.egg
 
 all:
