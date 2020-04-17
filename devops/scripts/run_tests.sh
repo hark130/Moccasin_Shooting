@@ -62,13 +62,5 @@ print_banner "SYSTEM"
 print_banner "PYTHON'S C API"
 ./run_libpython.sh
 
-# Calling Python from C
-print_banner "CALLING PYTHON FROM C"
-echo -e "TO DO: DON'T DO NOW... Implemented later\n"
-
-# Embedding the Python Interpreter
-print_banner "EMBEDDING THE PYTHON INTERPRETER"
-echo -e "TO DO: DON'T DO NOW... Implemented later\n"
-
 # DONE
 echo ""
