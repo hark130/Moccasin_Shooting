@@ -70,3 +70,4 @@ From the Moccasin_Shooting directory:
 
 * valgrind --leak-check=full --track-origins=yes --tool=memcheck --child-silent-after-fork=yes --error-exitcode=1 --trace-children=yes dist/system.bin echo test
 * valgrind --leak-check=full --track-origins=yes --tool=memcheck --child-silent-after-fork=yes --error-exitcode=1 --trace-children=yes dist/popen.bin echo test
+* valgrind --leak-check=full --track-origins=yes --tool=memcheck --child-silent-after-fork=yes --error-exitcode=1 --trace-children=yes dist/libpython.bin src/python/python_script01.py -h
