@@ -68,10 +68,8 @@ wchar_t **convert_argv_to_wargv(int argc, char **argv)
     // CONVERT
     // Allocate
     if (EXIT_SUCCESS == status)
-    {
-        // fprintf(stderr, "Entering calloc(array)\n");  // DEBUGGING   
+    {  
         changed_argv = calloc(argc + 1, sizeof(wchar_t *));
-        // fprintf(stderr, "Leaving calloc(array)\n");  // DEBUGGING
 
         if (!changed_argv)
         {
@@ -88,9 +86,7 @@ wchar_t **convert_argv_to_wargv(int argc, char **argv)
         for (i = 0; i < argc; i++)
         {
             // Calculate strlen
-            // fprintf(stderr, "Entering strlen()\n");  // DEBUGGING
             temp_strlen = strlen((*(argv + i)));
-            // fprintf(stderr, "Leaving strlen()\n");  // DEBUGGING
 
             if (temp_strlen < 1)
             {
@@ -102,9 +98,7 @@ wchar_t **convert_argv_to_wargv(int argc, char **argv)
             }
 
             // Allocate
-            // fprintf(stderr, "Entering calloc()\n");  // DEBUGGING
             (*(changed_argv + i)) = calloc(temp_strlen + 1, sizeof(wchar_t));
-            // fprintf(stderr, "Leaving calloc()\n");  // DEBUGGING
 
             if (!(*(changed_argv + i)))
             {
@@ -116,9 +110,7 @@ wchar_t **convert_argv_to_wargv(int argc, char **argv)
             }
 
             // Convert
-            // fprintf(stderr, "Entering mbstowcs()\n");  // DEBUGGING
             temp_converted = mbstowcs((*(changed_argv + i)), (*(argv + i)), temp_strlen + 1);
-            // fprintf(stderr, "Leaving mbstowcs()\n");  // DEBUGGING
 
             if (temp_converted != temp_strlen)
             {
@@ -135,9 +127,7 @@ wchar_t **convert_argv_to_wargv(int argc, char **argv)
     if (EXIT_SUCCESS != status)
     {
         // Free
-        // fprintf(stderr, "Entering free_wargv()\n");  // DEBUGGING
         free_wargv(argc, changed_argv);
-        // fprintf(stderr, "Leaving free_wargv()\n");  // DEBUGGING
         // NULL
         changed_argv = NULL;
     }
@@ -168,9 +158,7 @@ int main(int argc, char **argv)
     // Convert arguments
     if (EXIT_SUCCESS == status)
     {
-        // fprintf(stderr, "Entering convert_argv_to_wargv()\n");  // DEBUGGING
         wargv = convert_argv_to_wargv(argc, argv);
-        // fprintf(stderr, "Leaving convert_argv_to_wargv()\n");  // DEBUGGING
 
         if (!wargv)
         {
@@ -181,9 +169,7 @@ int main(int argc, char **argv)
     // Invoke the main program for the standard Python interpreter
     if (EXIT_SUCCESS == status)
     {
-        // fprintf(stderr, "Entering Py_Main()\n");  // DEBUGGING
         status = Py_Main(argc, wargv);
-        // fprintf(stderr, "Leaving Py_Main()\n");  // DEBUGGING
 
         if (status)
         {
