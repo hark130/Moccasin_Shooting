@@ -4,7 +4,7 @@
 # EXAMPLE: run_tests.sh
 # NOTES:
 #   Executes in the following order:
-#       run_popen.sh; run_system.sh
+#       run_popen.sh; run_system.sh run_libpython.sh
 
 
 # Purpose - Print an octothorp a certain number of times
@@ -59,8 +59,8 @@ print_banner "SYSTEM"
 ./run_system.sh
 
 # Embedded Python3
-print_banner "EMBEDDED PYTHON3"
-echo -e "TO DO: DON'T DO NOW... Implemented later\n"
+print_banner "PYTHON'S C API"
+./run_libpython.sh
 
 # Calling Python from C
 print_banner "CALLING PYTHON FROM C"

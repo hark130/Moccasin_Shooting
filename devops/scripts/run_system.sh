@@ -4,7 +4,7 @@
 # EXAMPLE: run_system.sh
 # NOTES:
 #   Executes in the following order:
-#       make system; <executes python_script0{1-6}>; <Checks output>
+#       make system; system.bin <python_script0{1-6}>; <Checks output>
 #   Python examples are hard-coded because python example 5 and 6 don't follow convention
 #   Greps the output text file for references to:
 #       - python_script0?.py

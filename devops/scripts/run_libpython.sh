@@ -1,10 +1,10 @@
 #!/bin/bash
-# PURPOSE - Execute the popen.bin binary against all Python examples
-# USAGE: run_popen.sh
-# EXAMPLE: run_popen.sh
+# PURPOSE - Execute the libpython.bin binary against all Python examples
+# USAGE: run_libpython.sh
+# EXAMPLE: run_libpython.sh
 # NOTES:
 #   Executes in the following order:
-#       make popen; popen.bin <python_script0{1-6}>; <Checks output>
+#       make libpython; libpython.bin <python_script0{1-6}>; <Checks output>
 #   Python examples are hard-coded because python example 5 and 6 don't follow convention
 #   Greps the output text file for references to:
 #       - python_script0?.py
@@ -132,12 +132,11 @@ verify_not_in_file()
 
 
 TEST_NUM=1  # Always start with the first test
-PYTHON_COMMAND="python3"
 SOURCE_DIR="src/python/"
 DIST_DIR="dist/"
 LOG_DIR="devops/logs/"
-RECIPE_NAME="popen"
-BINARY_NAME="popen.bin"
+RECIPE_NAME="libpython"
+BINARY_NAME="libpython.bin"
 BINARY_REL_NAME=$DIST_DIR$BINARY_NAME
 BINARY_FAIL_MSG="ERROR:"
 PYTHON_FILE_1="python_script01.py"
@@ -193,7 +192,7 @@ done
 for PYTHON_FILE in $PYTHON_REL_FILE_1 $PYTHON_REL_FILE_2 $PYTHON_REL_FILE_3 $PYTHON_REL_FILE_4 $PYTHON_REL_FILE_5 $PYTHON_REL_FILE_6
 do
     # SET TEMP VARIABLES
-    TEMP_COMMAND=$BINARY_REL_NAME" "$PYTHON_COMMAND" "$PYTHON_FILE" "$EXAMPLE_ARG" "$INPUT_FILE_PATH$INPUT_FILE_PREFIX$TEST_NUM$INPUT_FILE_SUFFIX
+    TEMP_COMMAND=$BINARY_REL_NAME" "$PYTHON_FILE" "$EXAMPLE_ARG" "$INPUT_FILE_PATH$INPUT_FILE_PREFIX$TEST_NUM$INPUT_FILE_SUFFIX
     TEMP_TEST_NAME=$INPUT_FILE_PREFIX$TEST_NUM".py"
     TEMP_STDOUT_NEEDLE="This is "$TEMP_TEST_NAME" stdout"
     TEMP_STDERR_NEEDLE="This is "$TEMP_TEST_NAME" stderr"

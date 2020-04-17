@@ -3,11 +3,11 @@ Test various methods of executing Python3 from C code in Linux.
 
 ## METHODS
 
-* [system()](http://man7.org/linux/man-pages/man3/system.3.html)
-* [popen()](http://man7.org/linux/man-pages/man3/popen.3.html)
-* [Embedding Python in Your C Programs](https://www.linuxjournal.com/article/8497)
-* [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
-* [Extending and Embedding the Python Interpreter](https://docs.python.org/3/extending/)
+1. [system()](http://man7.org/linux/man-pages/man3/system.3.html)
+2. [popen()](http://man7.org/linux/man-pages/man3/popen.3.html)
+3. [Embedding Python in Your C Programs](https://www.linuxjournal.com/article/8497)
+4. [Calling Python from C](https://www.geeksforgeeks.org/calling-python-from-c-set-1/)
+5. [Extending and Embedding the Python Interpreter](https://docs.python.org/3/extending/)
 
 ## EXECUTION
 
@@ -34,14 +34,14 @@ From the `Moccasin_Shooting` directory:
 
 ## TEST RESULTS
 
-| Test Number     | Description         | system()           | popen()            | Embedded Python3 | Calling Python from C | Embedding the Python Interpreter |
-| :-------------: | :------------------ | :----------------: | :----------------: | :-------------: | :-------------: | :-------------: |
-| python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
-| python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
-| python_script03 | Module function     | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
-| python_script04 | Package function    | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
-| python_script05 | Package execution   | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
-| python_script06 | Egg execution       | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: | :grey_question: |
+| Test Number     | Description         | 1. system()        | 2. popen()         | 3. Python/C API    | 4. Calling Python from C | 5. Embedding the Python Interpreter |
+| :-------------: | :------------------ | :----------------: | :----------------: | :----------------: | :-------------: | :-------------: |
+| python_script01 | Basic functionality | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script02 | Basic function      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script03 | Module function     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script04 | Package function    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script05 | Package execution   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
+| python_script06 | Egg execution       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :grey_question: | :grey_question: |
 
 **LEGEND**
 
@@ -50,8 +50,8 @@ From the `Moccasin_Shooting` directory:
 | :anger:            | False positive, misleading/missing results |
 | :boom:             | Seg fault or core dump                     |
 | :grey_question:    | Test not yet executed                      |
-| :heavy_check_mark: | Succeeded in finding the error             |
-| :x:                | Failed to find the error                   |
+| :heavy_check_mark: | Test passed                                |
+| :x:                | Test failed                                |
 
 NOTE:
 
@@ -70,3 +70,4 @@ From the Moccasin_Shooting directory:
 
 * valgrind --leak-check=full --track-origins=yes --tool=memcheck --child-silent-after-fork=yes --error-exitcode=1 --trace-children=yes dist/system.bin echo test
 * valgrind --leak-check=full --track-origins=yes --tool=memcheck --child-silent-after-fork=yes --error-exitcode=1 --trace-children=yes dist/popen.bin echo test
+* valgrind --leak-check=full --track-origins=yes --tool=memcheck --child-silent-after-fork=yes --error-exitcode=1 --trace-children=yes dist/libpython.bin src/python/python_script01.py -h
