@@ -58,3 +58,5 @@ clean:
 all:
 	$(MAKE) clean
 	$(MAKE) system
+	$(MAKE) popen
+	$(MAKE) libpython
