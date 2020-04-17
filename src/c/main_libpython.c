@@ -16,7 +16,7 @@ void free_wargv(int argc, wchar_t **wargv)
     // INPUT VALIDATION
     if (wargv && argc > 0)
     {
-        // FREE
+        // Free Contents
         for (i = 0; i < argc; i++)
         {
             temp_warg = (*(wargv + i));
@@ -32,6 +32,12 @@ void free_wargv(int argc, wchar_t **wargv)
         }
         // ZEROIZE
         memset(wargv, 0x0, sizeof(wchar_t *) * argc);
+    }
+
+    // Free Array Pointer
+    if (wargv)
+    {
+        free(wargv);
     }
 
     // DONE
