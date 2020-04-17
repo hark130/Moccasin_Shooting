@@ -58,7 +58,7 @@ print_banner "POPEN"
 print_banner "SYSTEM"
 ./run_system.sh
 
-# Embedded Python3
+# libpython
 print_banner "PYTHON'S C API"
 ./run_libpython.sh
 
