@@ -142,10 +142,7 @@ int main(int argc, char **argv)
     // LOCAL VARIABLES
     int status = EXIT_SUCCESS;    // Exit status
     int err_num = 0;              // Store errno here
-    // char *cmdBuff = NULL;         // Buffer to store the command
-    // FILE *python_stream = NULL;   // Return value from the call to popen()
-    // int temp_char = 0;            // Store characters from the process stream
-    wchar_t **wargv = NULL;
+    wchar_t **wargv = NULL;       // Converted argv to wchar_t
 
 
     // INPUT VALIDATION
