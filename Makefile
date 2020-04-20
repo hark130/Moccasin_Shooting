@@ -47,7 +47,7 @@ libpython:
 	$(MAKE) clean_files
 	$(MAKE) library
 	$(CC) $(CFLAGS) -o $(DIST)main_libpython.o -c $(C_CODE)main_libpython.c
-	$(CC) $(CFLAGS) -o $(DIST)libpython.bin $(DIST)MOSH_Command_Cat.o $(DIST)main_libpython.o -lpython3.6m
+	$(CC) $(CFLAGS) -o $(DIST)libpython.bin $(DIST)main_libpython.o -lpython3.6m
 
 clean_files:
 	@rm -f *_out.txt > /dev/null 2>&1
